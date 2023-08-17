@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-albums
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-albums
+  template:
+    metadata:
+      labels:
+        app: app-albums
+    spec:
+      containers:
+        - name: app-albums
+          image:  lrsuniga/app-albums
+          env:
+            - name: APP_AUTHORS_URL
+              value: http://app-singers-service:9090
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /q/health/live
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-albums-service
+spec:
+  type: ClusterIP
+  selector:
+    app: app-albums
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
