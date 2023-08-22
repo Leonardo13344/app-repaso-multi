@@ -1,19 +1,10 @@
-package com.distribuida.db;
+package com.distribuida.dto;
+public class SingerInstrumentDto {
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "singers_instruments")
-public class SingerInstrument {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "singer_id")
     private Integer singerId;
 
-    @Column(name = "instrument_id")
     private Integer instrumentId;
 
     public Integer getId() {

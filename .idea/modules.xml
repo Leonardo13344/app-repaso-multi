@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/micro1/micro1.iml" filepath="$PROJECT_DIR$/micro1/micro1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/micro1/app-repaso-multi.micro1.main.iml" filepath="$PROJECT_DIR$/.idea/modules/micro1/app-repaso-multi.micro1.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/micro2/app-repaso-multi.micro2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/micro2/app-repaso-multi.micro2.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/micro3/app-repaso-multi.micro3.main.iml" filepath="$PROJECT_DIR$/.idea/modules/micro3/app-repaso-multi.micro3.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/micro1/com.example.app-repaso-multi.micro1.main.iml" filepath="$PROJECT_DIR$/.idea/modules/micro1/com.example.app-repaso-multi.micro1.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/micro2/com.example.app-repaso-multi.micro2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/micro2/com.example.app-repaso-multi.micro2.main.iml" />
     </modules>
   </component>
 </project>

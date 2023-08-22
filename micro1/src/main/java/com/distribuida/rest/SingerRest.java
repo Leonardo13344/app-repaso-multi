@@ -1,14 +1,19 @@
 package com.distribuida.rest;
 
+import com.distribuida.client.SingerInstrumentRestClient;
 import com.distribuida.db.Singer;
+import com.distribuida.dto.SingerDto;
+import com.distribuida.dto.SingerInstrumentDto;
 import com.distribuida.repo.SingerRepository;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Path("/singers")
 @Produces(MediaType.APPLICATION_JSON)
@@ -18,6 +23,27 @@ public class SingerRest {
 
     @Inject
     SingerRepository rep;
+
+    @Inject
+    @RestClient
+    SingerInstrumentRestClient clientSingerInstrument;
+
+    @GET
+    @Path("/getB")
+    public List<SingerDto> findAllB(){
+        return rep.findAll().list()
+                .stream()
+                .map(obj -> {
+                    SingerDto dto = new SingerDto();
+                    dto.setId(obj.getId());
+                    //dto.setInstruments(obj.getInstruments());
+                    dto.setVersion(obj.getVersion());
+                    dto.setFirstName(obj.getFirstName());
+                    dto.setLastName(obj.getLastName());
+                    dto.setBirthDate(obj.getBirthDate());
+                    return dto;
+                }).collect(Collectors.toList());
+    }
 
     @GET
     public List<Singer> findAll(){
